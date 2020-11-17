@@ -1,22 +1,23 @@
+//A simple c++ program that is used to get and display information of company employee to demonstrate multiple inheritance
 #include<iostream>
 using namespace std;
-class Company{
+class Company{ // Creating a class called Company
     protected:
-        int HOD_ID;
-        string HOD_Name;
+        int HOD_ID;       // variables for head of the department details
+        string HOD_Name; 
     public:
-        void get_info(int i);
+        void get_info(int i); 
         void display_info(int i);
 };
-class Manufacturing:protected Company{
+class Manufacturing:protected Company{ //inheriting class "Company" by the class "Manufacturing"
     protected:
-        int ID;
+        int ID; // variables for the employement details
         string Name;
     public:
         void get_info(int  i );
         void display_info(int i);
 };
-class Packaging:protected Company{
+class Packaging:protected Company{  //inheriting class "Company" by the class "Packaging"
     protected:
     int ID;
     string Name;
@@ -94,11 +95,12 @@ void Packaging::display_info(int i){
 }
 
 int main(void){
-    class Manufacturing m[3];
-    class Packaging p[3];
+    class Manufacturing m[3]; //initating  3 objects for Manufacturing and Packaging class
+
+    class Packaging p[3]; // Note: during inheritance objects of the derived class or the class that inherits other class is created
     int i;
     cout << endl << "\nManufacturing Department Info:\n";
-    for (i = 0; i < 3;i++){
+    for (i = 0; i < 3;i++){ //Calling functions through loop
         m[i].get_info(i);
     }
     cout << endl << "\nPackaging Department Info:\n";
